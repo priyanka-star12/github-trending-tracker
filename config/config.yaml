@@ -1,6 +1,7 @@
- scraper:
+ 
+scraper:
   trending_url: "https://github.com/trending"
-  since: "monthly" # daily, weekly, monthly
+  since: "monthly"
   user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 
 database:
