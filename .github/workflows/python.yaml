@@ -26,5 +26,8 @@ jobs:
       - name: Validate configuration
         run: python -c "import yaml; yaml.safe_load(open('config/config.yaml')); print('Configuration is valid!')"
 
+      -  
       - name: Check Python syntax
-        run: python -m compileall -q main.py config/test/src
+        run: |
+          python -c "import ast; from pathlib import Path; files = [Path('main.py'), *Path('config/test/src').glob('*.py')]; [ast.parse(p.read_text(encoding='utf-8'), filename=str(p)) for p in files]; print('All Python files have valid syntax!')"
+
